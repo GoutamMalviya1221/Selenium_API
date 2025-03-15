@@ -1,0 +1,135 @@
+{
+	"info": {
+		"_postman_id": "f79afe1b-84e2-4fef-8494-2faa2acdd206",
+		"name": "Jsondummy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37721652"
+	},
+	"item": [
+		{
+			"name": "Fetch All Recipes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://dummyjson.com/recipes",
+					"protocol": "https",
+					"host": [
+						"dummyjson",
+						"com"
+					],
+					"path": [
+						"recipes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch a Single Recipe",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://dummyjson.com/recipes/1",
+					"protocol": "https",
+					"host": [
+						"dummyjson",
+						"com"
+					],
+					"path": [
+						"recipes",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Recipes by Name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://dummyjson.com/recipes/search?q=chicken",
+					"protocol": "https",
+					"host": [
+						"dummyjson",
+						"com"
+					],
+					"path": [
+						"recipes",
+						"search"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "chicken"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add a New Recipe",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://dummyjson.com/recipes/add",
+					"protocol": "https",
+					"host": [
+						"dummyjson",
+						"com"
+					],
+					"path": [
+						"recipes",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update a Recipe",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "https://dummyjson.com/recipes/23",
+					"protocol": "https",
+					"host": [
+						"dummyjson",
+						"com"
+					],
+					"path": [
+						"recipes",
+						"23"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a Recipe",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://dummyjson.com/recipes/23",
+					"protocol": "https",
+					"host": [
+						"dummyjson",
+						"com"
+					],
+					"path": [
+						"recipes",
+						"23"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
