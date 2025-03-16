@@ -8,60 +8,30 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class Datadriven {
-	WebDriver driver;
-	
-	
-	@BeforeMethod
-	public void setup() {
-		
-		driver = new ChromeDriver();
-		
-		driver.get("https://practicetestautomation.com/practice-test-login/");
-}
-	
-	@Test(dataProvider = "data")
-	public void herokulogin(String username , String password) {
-		
-		// For Username
-		driver.findElement(By.id("username")).sendKeys(username);
-		
-		//For PAssword
-		driver.findElement(By.id("password")).sendKeys(password);
-
-		//For Clicking on Login Button
-		driver.findElement(By.id("submit")).click();		
-
-	}
-	
-	//Step 2 : Data provider through 2D array
-	
-	@org.testng.annotations.DataProvider(name = "data")
-	public Object[][] data(){
-		
-		return new Object[][] {
+	public static void main(String[] args) throws EncryptedDocumentException, IOException {
 			
-			new Object[] {"stu","password"},
-			new Object[] {"student","pass123"},
-			new Object[] {"student","Password"},
-			new Object[] {"","Password123"},
-			new Object[] {"student",""},
-			new Object[] {"student","Password123"},
-	
-		};
-	}
-	
-	
-	
-	
-	
-	@AfterMethod
-	public void teardown() {
+			WebDriver driver = new ChromeDriver();
+			
+			driver.get("https://practicetestautomation.com/practice-test-login/");
+			
+			driver.manage().window().maximize();
+			// Step 1: read an external file using  FileInputStream class
+			FileInputStream fis= new FileInputStream("C:\\Users\\lenovo\\Documents\\workspace-spring-tool-suite-4-4.24.0.RELEASE\\Selenium_API_March15\\src\\main\\resources\\DataD.xlsx");
+			
+	       // Step 2: Use APachePoi libraries to connect with excel - WorkcookFactory.
+			Workbook Book = WorkbookFactory.create(fis); // this will create a new instance of workbook
+			
+			// fetch values from excel from
+			String Username = Book.getSheet("Sheet1").getRow(1).getCell(0).getStringCellValue();
+			String password = Book.getSheet("Sheet1").getRow(1).getCell(1).getStringCellValue();
+			
+			driver.findElement(By.id("username")).sendKeys(Username);
+			driver.findElement(By.id("password")).sendKeys(password);
+			
+			driver.findElement(By.xpath("//button[@id='submit']")).click();
+
 		
-
-
-		driver.close();
-		
-	}
-
+			driver.quit();
+		}
 
 }
